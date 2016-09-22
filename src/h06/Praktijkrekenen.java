@@ -11,10 +11,6 @@ public class Praktijkrekenen extends Applet {
     double a, b, c, d, e , f, finaleuitkomst;
     int uitkomst1;
 
-
-
-
-
     public void init() {
         super.init();
         a = 5.9;
@@ -26,12 +22,7 @@ public class Praktijkrekenen extends Applet {
         uitkomst1 = (int) ((a + b+ c) / d*e);
         finaleuitkomst=(double) uitkomst1 / e;
 
-
-
-
-
     }
-
     public void paint(Graphics g) {
         g.drawString("De eerste stap is: " + uitkomst1, 20, 20);
         g.drawString("het antwoord is: " + finaleuitkomst, 30, 40);

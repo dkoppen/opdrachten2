@@ -43,7 +43,7 @@ public class Flag extends Applet
         c=Color.blue;
 
         g.setColor(c);
-        
+
         int l=0;
         int x=355,y=162;
         double x1,y1;

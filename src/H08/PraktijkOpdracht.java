@@ -1,145 +1,104 @@
 package H08;
 
-import java.applet.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.TextEvent;
-import java.awt.event.TextListener;;
+import java.applet.*;
+import java.awt.event.*;
 
-public class PraktijkOpdracht extends Applet implements ActionListener, TextListener
 
+public class PraktijkOpdracht extends Applet
 {
-    String s,s1,s2,s3,s4;
-    Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0;
-    Button add,sub,eq,cl,mul,div;
-    TextField t1;
-    int a,b,c;
+
+    TextField invoervak1, invoervak2, resultaat;
+    Button maal, plus, delen, aftrekken;
+    double invoergetal1, invoergetal2, resultaatgetal;
 
     public void init()
     {
-        t1=new TextField(10);
-        b1=new Button("1");
-        b2=new Button("2");
-        b3=new Button("3");
-        b4=new Button("4");
-        b5=new Button("5");
-        b6=new Button("6");
-        b7=new Button("7");
-        b8=new Button("8");
-        b9=new Button("9");
-        b0=new Button("0");
-        add=new Button("+");
-        sub=new Button("-");
-        mul=new Button("*");
-        div=new Button("/");
-        eq=new Button("=");
-        cl=new Button("Clear");
 
+        invoervak1 = new TextField( 12 );
+        invoervak2 = new TextField( 12 );
+        resultaat = new TextField( 12 );
 
+        maal = new Button( "x" );
+        maal.addActionListener( new maalHandler() );
 
-        GridLayout gb=new GridLayout(4,5);
-        setLayout(gb);
+        plus = new Button( "+" );
+        plus.addActionListener( new plusHandler() );
 
+        delen = new Button( "/" );
+        delen.addActionListener( new delenHandler() );
 
-        add(t1);
-        add(b1);
-        add(b2);
-        add(b3);
-        add(b4);
-        add(b5);
-        add(b6);
-        add(b7);
-        add(b8);
-        add(b9);
-        add(b0);
-        add(add);
-        add(sub);
-        add(mul);
-        add(div);
-        add(eq);
-        add(cl);
+        aftrekken = new Button( "-" );
+        aftrekken.addActionListener( new aftrekkenHandler() );
 
-        b1.addActionListener(this);
-        b2.addActionListener(this);
-        b3.addActionListener(this);
-        b4.addActionListener(this);
-        b5.addActionListener(this);
-        b6.addActionListener(this);
-        b7.addActionListener(this);
-        b8.addActionListener(this);
-        b9.addActionListener(this);
-        b0.addActionListener(this);
-        add.addActionListener(this);
-        sub.addActionListener(this);
-        mul.addActionListener(this);
-        div.addActionListener(this);
-        eq.addActionListener(this);
-        cl.addActionListener(this);
-        paint();
-        //t1.addTextListener(this);
-    }
-    public void paint()
-    {
-        setBackground(Color.black);
+        add( invoervak1 );
+        add( invoervak2 );
+        add( maal );
+        add( plus );
+        add( delen );
+        add( aftrekken );
+        add( resultaat );
+
     }
 
-    public void actionPerformed(ActionEvent e)
+    class maalHandler implements ActionListener
     {
-        s=e.getActionCommand();
-        if(s.equals("0")||s.equals("1")||s.equals("2")||
-                s.equals("3")||s.equals("4")||s.equals("5")||s.equals("6")||s.equals("7")||s.equals("8")||
-                s.equals("9")||s.equals("0"))
+
+        public void actionPerformed( ActionEvent e )
         {
-            s1=t1.getText()+s;
-            t1.setText(s1);
-        }
-        if(s.equals("+"))
-        {
-            s2=t1.getText();
-            t1.setText("");
-            s3="+";
-        }
-        if(s.equals("-"))
-        {
-            s2=t1.getText();
-            t1.setText("");
-            s3="-";
-        }
-        if(s.equals("*"))
-        {
-            s2=t1.getText();
-            t1.setText("");
-            s3="*";
-        }
-        if(s.equals("*"))
-        {
-            s2=t1.getText();
-            t1.setText("");
-            s3="*";
-        }
-        if(s.equals("="))
-        {
-            s4=t1.getText();
-            a=Integer.parseInt(s2);
-            b=Integer.parseInt(s4);
-            if(s3.equals("+"))
-                c=a+b;
-            if(s3.equals("-"))
-                c=a-b;
-            if(s3.equals("*"))
-                c=a*b;
-            if(s3.equals("/"))
-                c=a/b;
-            t1.setText(String.valueOf(c));
-        }
-        if(s.equals("Clear"))
-        {
-            t1.setText("");
+            String invoer1 = invoervak1.getText();
+            invoergetal1 = Double.parseDouble( invoer1 );
+
+            String invoer2 = invoervak2.getText();
+            invoergetal2 = Double.parseDouble( invoer2 );
+
+            resultaatgetal = invoergetal1 * invoergetal2;
+            resultaat.setText( "" + resultaatgetal );
         }
     }
-    public void textValueChanged(TextEvent e)
+    class plusHandler implements ActionListener
     {
+        public void actionPerformed( ActionEvent e )
+        {
+            String invoer1 = invoervak1.getText();
+            invoergetal1 = Double.parseDouble( invoer1 );
+
+            String invoer2 = invoervak2.getText();
+            invoergetal2 = Double.parseDouble( invoer2 );
+
+            resultaatgetal = invoergetal1 + invoergetal2;
+            resultaat.setText( "" + resultaatgetal );
+        }
+
+    }
+    class delenHandler implements ActionListener
+    {
+        public void actionPerformed( ActionEvent e )
+        {
+            String invoer1 = invoervak1.getText();
+            invoergetal1 = Double.parseDouble( invoer1 );
+
+            String invoer2 = invoervak2.getText();
+            invoergetal2 = Double.parseDouble( invoer2 );
+
+            resultaatgetal = invoergetal1 / invoergetal2;
+            resultaat.setText( "" + resultaatgetal );
+        }
+
+    }
+    class aftrekkenHandler implements ActionListener
+    {
+        public void actionPerformed( ActionEvent e )
+        {
+            String invoer1 = invoervak1.getText();
+            invoergetal1 = Double.parseDouble( invoer1 );
+
+            String invoer2 = invoervak2.getText();
+            invoergetal2 = Double.parseDouble( invoer2 );
+
+            resultaatgetal = invoergetal1 - invoergetal2;
+            resultaat.setText( "" + resultaatgetal );
+        }
 
     }
 }

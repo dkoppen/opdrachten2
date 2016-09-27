@@ -1,51 +1,45 @@
 package H08;
 
-import java.applet.Applet;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.applet.*;
+import java.awt.event.*;
 
 
 public class DerdeOpdracht extends Applet {
-    TextField tekstvak;
-    Label label;
-    Button okknop;
-    String s;
 
+
+    TextField invoervak1,  resultaat;
+    Button maal;
+    double invoergetal1,invoergetal2, resultaatgetal, btw;
 
     public void init() {
-        tekstvak = new TextField("", 30);
-        tekstvak.addActionListener(new TekstvakListener());
+        invoervak1 = new TextField( 12 );
+        resultaat = new TextField( 12 );
+        invoervak1 = new TextField(12);
 
-        okknop = new Button("ok");
-        KnopListener kl = new KnopListener();
-        okknop.addActionListener(kl);
+        resultaat = new TextField(12);
+        btw = 1.21;
 
-        label = new Label("Type hier uw bedrag");
+        maal = new Button("x");
+        maal.addActionListener(new maalHandler());
 
-        add(label);
-        add(tekstvak);
-        add(okknop);
 
-        s = "";
+        add(invoervak1);
+        add(maal);
+        add(resultaat);
+
     }
 
-    public void paint(Graphics g) {
-        g.drawString(s, 40, 100);
-    }
+    class maalHandler implements ActionListener {
 
-    class KnopListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            s = tekstvak.getText();
-            repaint();
+            String invoer1 = invoervak1.getText();
+            invoergetal1 = Double.parseDouble(invoer1);
+
+
+
+            resultaatgetal = invoergetal1 * btw;
+            resultaat.setText("" + resultaatgetal);
         }
     }
-    class TekstvakListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            s = tekstvak.getText();
-            repaint();
-        }
-    }
-
-
 }

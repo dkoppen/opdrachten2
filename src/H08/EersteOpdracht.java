@@ -14,6 +14,7 @@ public class EersteOpdracht extends Applet {
     Button knop2;
     String s;
 
+
     public void init() {
         tekstvak = new TextField("", 30);
         tekstvak.addActionListener(new TekstvakListener());
@@ -32,6 +33,7 @@ public class EersteOpdracht extends Applet {
         add(tekstvak);
         add(knop);
         add(knop2);
+
         s = "";
     }
 
@@ -42,7 +44,9 @@ public class EersteOpdracht extends Applet {
     class KnopListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             s = tekstvak.getText();
+
             repaint();
+
         }
     }
 

@@ -7,10 +7,10 @@ import java.awt.event.ActionListener;
 
 public class TweedeOpdracht extends Applet {
 
-    Button a;
-    Button b;
-    Button c;
-    Button d;
+    Button man;
+    Button vrouw;
+    Button lman;
+    Button lvrouw;
     int f;
     int j;
     int h;
@@ -20,25 +20,25 @@ public class TweedeOpdracht extends Applet {
     public void init() {
         setLayout(new FlowLayout());
 
-        a = new Button("mannen");
+        man = new Button("mannen");
         KnopListener kl = new KnopListener();
-        a.addActionListener(kl);
-        add(a);
+        man.addActionListener(kl);
+        add(man);
 
-        b = new Button("vrouwen");
+        vrouw = new Button("vrouwen");
         KnopListener1 ht = new KnopListener1();
-        b.addActionListener(ht);
-        add(b);
+        vrouw.addActionListener(ht);
+        add(vrouw);
 
-        c = new Button("leerlingen mannen");
+        lman = new Button("leerlingen mannen");
         KnopListener2 rs = new KnopListener2();
-        c.addActionListener(rs);
-        add(c);
+        lman.addActionListener(rs);
+        add(lman);
 
-        d = new Button("leerlingen vrouwen");
+        lvrouw = new Button("leerlingen vrouwen");
         KnopListener3 az = new KnopListener3();
-        d.addActionListener(az);
-        add(d);
+        lvrouw.addActionListener(az);
+        add(lvrouw);
 
         f = 0;
         j = 0;

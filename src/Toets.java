@@ -3,22 +3,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Created by Dennis on 12-10-2016.
- */
 public class Toets extends Applet {
 
-    Label label;
-    Button knop;
-    TextField tekstvak;
-    double invoer;
-    double tijdInLondon;
-    double tijdInTokyo;
-    double tijdInNewyork;
-    double tijdInSydney;
-    double invoergetal;
-    boolean geklikt;
-    String s;
+    private Label label;
+    private Button knop;
+    private TextField tekstvak;
+    private int invoer;
+    private int tijdInLondon;
+    private int tijdInTokyo;
+    private int tijdInNewyork;
+    private int tijdInSydney;
+    private int invoergetal;
+    private boolean geklikt;
+    private String s;
 
 
     @Override
@@ -26,7 +23,6 @@ public class Toets extends Applet {
         super.init();
 
         tekstvak = new TextField("", 20);
-
 
         knop = new Button("Toon Tijden");
         KnopListener kl = new KnopListener();
@@ -48,7 +44,9 @@ public class Toets extends Applet {
 
         int x = 40;
         int y = 80;
-        if (invoer >= 0 && invoer < 24) {
+
+        if (geklikt) {
+            if (invoer >= 0 && invoer < 24) {
             g.drawString("Tijd in London: " + tijdInLondon + ":00 uur", x, y);
             y = y + 20;
             g.drawString("Tijd in Tokyo: " + tijdInTokyo + ":00 uur", x, y);
@@ -58,28 +56,43 @@ public class Toets extends Applet {
             g.drawString("Tijd in Sydney: " + tijdInSydney + ":00 uur", x, y);
             y = y + 20;
         } else {
-            if (geklikt) {
                 g.drawString("Ongeldige Invoer", x, y);
             }
         }
     }
 
 
-    class KnopListener implements ActionListener {
+    private class KnopListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            s = tekstvak.getText();
-            double invoer = Double.parseDouble(s);
+            String s = tekstvak.getText();
+            invoer = Integer.parseInt(s);
 
-            tijdInLondon = invoer + invoergetal - 1;
-            tijdInTokyo = invoer + invoergetal + 7;
-            tijdInNewyork = invoer + invoergetal - 6;
-            tijdInSydney = invoer + invoergetal + 9;
+            tijdInLondon = invoer - 1;
+            if (tijdInLondon < 0) {
+                tijdInLondon += 24;
+            }
+            tijdInTokyo = invoer + 7;
+            if (tijdInTokyo > 23) {
+                tijdInTokyo -= 24;
+            }
+            tijdInNewyork = invoer - 6;
+            if (tijdInNewyork < 0) {
+                tijdInNewyork += 24;
+            }
+            tijdInSydney = invoer + 9;
+            if (tijdInSydney > 23) {
+                tijdInSydney -= 24;
+            }
             geklikt = true;
 
             repaint();
 
+
+
+
+            }
         }
     }
-}
+
 

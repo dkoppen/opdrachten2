@@ -5,10 +5,7 @@ import java.applet.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Created by Gebruiker on 26-10-2016.
- * Af
- */
+
 public class Praktijk extends Applet{
 
     TextField tekstvak;

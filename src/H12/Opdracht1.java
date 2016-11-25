@@ -6,20 +6,20 @@ import java.applet.*;
 
 public class Opdracht1 extends Applet{
 
-    double salaris[], totaalsalaris, gemiddelde;
+    double inkomen[], totaal, gemiddelde;
 
 
     public void init() {
-        salaris = new double [10];
+        inkomen = new double [10];
 
-        for (int teller = 0; teller < salaris.length; teller ++) {
-            salaris[teller] = 50 * teller + 50;
-            totaalsalaris += salaris[teller];
+        for (int teller = 0; teller < inkomen.length; teller ++) {
+            inkomen[teller] = 50 * teller + 50;
+            totaal += inkomen[teller];
         }
     }
 
     public void paint(Graphics g) {
-        gemiddelde = totaalsalaris / salaris.length;
+        gemiddelde = totaal / inkomen.length;
         g.drawString("Gemiddelde = " + gemiddelde, 50, 30);
 
     }

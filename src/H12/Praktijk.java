@@ -9,27 +9,27 @@ import java.awt.event.*;
 public class Praktijk extends Applet {
 
     int[] nummer;
-    String[] naam;
-    Button knop;
+    String[] name;
+    Button button;
     TextField[] textFields;
     int teller=0;
-    boolean swichts;
+    boolean verander;
 
     @Override
     public void init() {
         textFields = new TextField[2];
         nummer = new int[10];
-        naam = new String[10];
-        knop = new Button("OK");
+        name = new String[10];
+        button = new Button("OK");
         KnopListener kl = new KnopListener();
-        knop.addActionListener(kl);
+        button.addActionListener(kl);
 
         for (int i = 0; i <textFields.length ; i++) {
             textFields[i] = new TextField("",15);
             textFields[i].addActionListener(kl);
             add(textFields[i]);
         }
-        add(knop);
+        add(button);
 
     }
 
@@ -39,13 +39,13 @@ public class Praktijk extends Applet {
 
             if (teller <10){
 
-                naam[teller] = textFields[0].getText();
+                name[teller] = textFields[0].getText();
                 nummer[teller] = Integer.parseInt(textFields[1].getText());
 
                 teller++;
 
             } else {
-                swichts = true;
+                verander = true;
                 repaint();
             }
             textFields[0].setText("");
@@ -55,11 +55,11 @@ public class Praktijk extends Applet {
 
     @Override
     public void paint(Graphics g) {
-        if (swichts == true){
+        if (verander == true){
             int x=50;
             int y=50;
             for (int i = 0; i <nummer.length ; i++) {
-                g.drawString(naam[i]+"   "+nummer[i],x,y);
+                g.drawString(name[i]+"   "+nummer[i],x,y);
                 y+=25;
             }
         }

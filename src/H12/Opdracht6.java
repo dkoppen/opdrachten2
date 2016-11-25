@@ -9,20 +9,20 @@ import java.awt.event.ActionListener;
 public class Opdracht6 extends Applet{
 
     boolean geklikt, gevonden;
-    int[] salaris = { 1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 5, 5, 5 };
+    int[] inkomen = { 1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 5, 5, 5 };
     int getal;
     int hoevaak;
     TextField tekstvak;
-    Button knop;
+    Button button;
 
     public void init() {
 
         tekstvak = new TextField("",5);
         add(tekstvak);
 
-        knop = new Button("OK");
-        add(knop);
-        knop.addActionListener(new Knoplisterner());
+        button = new Button("OK");
+        add(button);
+        button.addActionListener(new Knoplisterner());
     }
 
     class Knoplisterner implements ActionListener {
@@ -34,8 +34,8 @@ public class Opdracht6 extends Applet{
             gevonden = false;
             geklikt = true;
             hoevaak = 0;
-            for (int i = 0; i < salaris.length; i++) {
-                if (salaris[i] == getal) {
+            for (int i = 0; i < inkomen.length; i++) {
+                if (inkomen[i] == getal) {
                     gevonden = true;
                     hoevaak++;
                 }

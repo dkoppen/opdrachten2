@@ -6,15 +6,15 @@ import java.awt.*;
 
 public class Opdracht2 extends Applet{
 
-    Button[] knop;
+    Button[] button;
 
     @Override
     public void init() {
 
-        knop = new Button[25];
-        for (int i = 0; i < knop.length; i++) {
-            knop[i] = new Button("" + i);
-            add(knop[i]);
+        button = new Button[25];
+        for (int i = 0; i < button.length; i++) {
+            button[i] = new Button("" + i);
+            add(button[i]);
         }
     }
 

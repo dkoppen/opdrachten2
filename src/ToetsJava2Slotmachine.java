@@ -1,8 +1,9 @@
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.applet.*;
-import java.net.*;
+import java.net.URL;
 
 public class ToetsJava2Slotmachine extends Applet
 {
@@ -10,6 +11,7 @@ public class ToetsJava2Slotmachine extends Applet
     String[]afbeeldingen={"fruit_1.jpg","fruit_2.jpg","fruit_3.jpg","fruit_4.jpg","fruit_5.jpg","fruit_6.jpg","fruit_7.jpg","fruit_8.jpg","fruit_9.jpg","fruit_10.jpg","fruit_11.jpg","fruit_12.jpg","fruit_13.jpg","fruit_14.jpg","fruit_15.jpg","fruit_16.jpg","fruit_17.jpg","fruit_18.jpg","fruit_19.jpg","fruit_20.jpg",};
 
     private Image afbeelding1,afbeelding2,afbeelding3;
+    private AudioClip sound;
     URL pad;
 
     double getal1, getal2, getal3;
@@ -27,7 +29,8 @@ public class ToetsJava2Slotmachine extends Applet
         begin = false;
         krediet = 10;
 
-        pad = Image.class.getResource("/resources/");
+        pad = ToetsJava2Slotmachine.class.getResource("/resources/");
+        sound = getAudioClip(pad, "sound.wav");
 
         koop = new Button("Koop Krediet");
         Play = new Button("Play");
@@ -50,11 +53,13 @@ public class ToetsJava2Slotmachine extends Applet
         {
             g.drawString("Gewonnen: +4 punten.", 40, 140);
             winst = false;
+            sound.play();
         }
         if(jackpot == true)
         {
             g.drawString("Jackpot Gewonnen: +20 punten!", 40, 140);
             jackpot = false;
+            sound.play();
         }
     }
 
@@ -132,4 +137,6 @@ public class ToetsJava2Slotmachine extends Applet
             koop.setEnabled(false);
         }
     }
+
+
 }

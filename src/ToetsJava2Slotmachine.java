@@ -64,7 +64,7 @@ public class ToetsJava2Slotmachine extends Applet
         public void actionPerformed(ActionEvent e)
         {
             begin = true;
-            if (krediet >0)
+            if (krediet > 0)
             {
                 krediet--;
 
@@ -99,16 +99,21 @@ public class ToetsJava2Slotmachine extends Applet
 
     void slots(Graphics g)
     {
-        afbeelding1 = getImage(pad, "ToetsJava2Slotmachine/fruitplaatjes/"+ afbeeldingen[nummer1]);
-        afbeelding2 = getImage(pad, "ToetsJava2Slotmachine/fruitplaatjes/"+ afbeeldingen[nummer2]);
-        afbeelding3= getImage(pad, "ToetsJava2Slotmachine/fruitplaatjes/"+ afbeeldingen[nummer3]);
+        afbeelding1 = getImage(pad, ""+ afbeeldingen[nummer1]);
+        afbeelding2 = getImage(pad, ""+ afbeeldingen[nummer2]);
+        afbeelding3 = getImage(pad, ""+ afbeeldingen[nummer3]);
 
 
-        g.drawImage(afbeelding1, 20, 40, 40, 60, this);
-        g.drawImage(afbeelding2, 60, 40, 40, 60, this);
-        g.drawImage(afbeelding3, 100, 40, 40, 60, this);
+        g.drawImage(afbeelding1, 20, 40, 40, 80, this);
+        g.drawImage(afbeelding2, 60, 40, 40, 80, this);
+        g.drawImage(afbeelding3, 100, 40, 40, 80, this);
 
         if (nummer1 == nummer2 && begin == true)
+        {
+            krediet = krediet + 4;
+            winst = true;
+        }
+        if (nummer2 == nummer3 && begin == true)
         {
             krediet = krediet + 4;
             winst = true;

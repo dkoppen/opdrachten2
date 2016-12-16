@@ -15,11 +15,11 @@ public class Pratijk extends Applet
     }
     public void paint(Graphics g)
     {
-        for(int teller=0; teller <10; teller++)
+        for(int teller=0; teller <5; teller++)
         {
-            for(int teller1=0; teller1<3; teller1++)
+            for(int teller1=0; teller1<2; teller1++)
             {
-                tekenboom(g, teller*80+20*(teller1%2),(teller1+5)*40);
+                tekenboom(g, teller *  + 20 *(teller1%2),(teller1+5)*40);
             }
         }
     }

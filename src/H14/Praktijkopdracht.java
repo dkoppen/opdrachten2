@@ -13,7 +13,7 @@ public class Praktijkopdracht extends Applet {
     TextField nummer;
     int getal, spel = 23;
     boolean geklikt, gewonnen, verloren, game = true, winst, test = true;
-    int hulp1, hulp2;
+    int tip1, tip2;
     Image boosplaatje, blijplaatje, normaalplaatje;
     URL pad;
 
@@ -68,8 +68,8 @@ public class Praktijkopdracht extends Applet {
         if (invoer > 0 && invoer < 4 && spel > 0 && spel >= invoer) {
 
             spel -= invoer;
-            hulp2 = invoer;
-            hulp1 = 69;
+            tip2 = invoer;
+            tip1 = 69;
 
             geklikt = true;
 
@@ -112,13 +112,13 @@ public class Praktijkopdracht extends Applet {
                 int random = new Random().nextInt(3) + 1;
                 spel -= random;
                 getal = random;
-                hulp1 = getal;  hulp2 = 69;
+                tip1 = getal;  tip2 = 69;
                 repaint();
             }
 
 
 
-            if (spel <=hulp2 &&  hulp1 ==69) {
+            if (spel <=tip2 &&  tip1 ==69) {
                 geklikt = false;
                 game = false;
                 gewonnen = false;
@@ -126,7 +126,7 @@ public class Praktijkopdracht extends Applet {
                 test = false;
             }
 
-            if (spel <= hulp1 &&  hulp2 ==69) {
+            if (spel <= tip1 &&  tip2 ==69) {
                 geklikt = false;
                 game = false;
                 gewonnen = true;
